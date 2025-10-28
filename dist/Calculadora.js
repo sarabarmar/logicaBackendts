@@ -1,26 +1,23 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class Calculadora {
-    sumar(a: number, b: number): number {
+    sumar(a, b) {
         return a + b;
     }
-
-    restar(a: number, b: number): number {
+    restar(a, b) {
         return a - b;
     }
-
-    multiplicar(a: number, b: number): number {
+    multiplicar(a, b) {
         return a * b;
     }
-
-    dividir(a: number, b: number): number | string {
+    dividir(a, b) {
         if (b === 0) {
             return "No es posible dividir el numero entre 0";
         }
         return a / b;
     }
-
-    calcular(operacion: string, a: number, b: number): number | string {
+    calcular(operacion, a, b) {
         const op = operacion.toLowerCase();
-
         switch (op) {
             case 'sumar':
             case '+':
@@ -39,7 +36,7 @@ class Calculadora {
         }
     }
 }
-
 const calcSwitch = new Calculadora();
 console.log(calcSwitch.calcular('+', 10, 5));
 console.log(calcSwitch.calcular('dividir', 10, 0));
+//# sourceMappingURL=Calculadora.js.map

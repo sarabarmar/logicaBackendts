@@ -1,16 +1,10 @@
-interface Usuario {
-    id: number;
-    nombre: string;
-    correo: string;
-    activo: boolean;
-}
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class UsuarioService {
-    private usuarios: Usuario[] = [];
-    private nextId: number = 1;
-
-    crear(datosUsuario: { nombre: string, correo: string }): Usuario {
-        const nuevoUsuario: Usuario = {
+    usuarios = [];
+    nextId = 1;
+    crear(datosUsuario) {
+        const nuevoUsuario = {
             id: this.nextId++,
             nombre: datosUsuario.nombre,
             correo: datosUsuario.correo,
@@ -19,8 +13,7 @@ class UsuarioService {
         this.usuarios.push(nuevoUsuario);
         return nuevoUsuario;
     }
-
-    desactivar(id: number): boolean {
+    desactivar(id) {
         const usuario = this.usuarios.find(u => u.id === id);
         if (usuario) {
             usuario.activo = false;
@@ -28,14 +21,13 @@ class UsuarioService {
         }
         return false;
     }
-
-    listarActivos(): Usuario[] {
+    listarActivos() {
         return this.usuarios.filter(u => u.activo === true);
     }
 }
-
 const gestor = new UsuarioService();
 gestor.crear({ nombre: "Mario", correo: "mario@mail.com" });
 gestor.crear({ nombre: "Natalia", correo: "natalia@mail.com" });
 gestor.desactivar(1);
 console.log(gestor.listarActivos());
+//# sourceMappingURL=Usuario.js.map
